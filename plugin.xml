@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cn.bqmart.bqScanner" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>bqScanner</name>
+    <js-module name="bqScanner" src="www/bqScanner.js">
+        <clobbers target="cordova.plugins.bqScanner" />
+    </js-module>
+
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="bqScanner">
+                <param name="ios-package" value="bqScanner" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+          <string>请允许我们访问您的相机用于扫码</string>
+        </config-file>
+
+        <source-file src="src/ios/bqScanner.m" />
+
+        <header-file src="src/ios/QRCodeReaderDelegate.h"/>
+
+        <header-file src="src/ios/QRCodeReaderView.h" />
+        <source-file src="src/ios/QRCodeReaderView.m" />
+
+        <header-file src="src/ios/QRCodeReaderViewController.h" />
+        <source-file src="src/ios/QRCodeReaderViewController.m" />
+
+        <framework src="AVFoundation.framework" />
+
+        <resource-file src="src/ios/resource/beep.wav"/>
+        <resource-file src="src/ios/resource/corner1@2x.png"/>
+        <resource-file src="src/ios/resource/corner2@2x.png"/>
+        <resource-file src="src/ios/resource/corner3@2x.png"/>
+        <resource-file src="src/ios/resource/corner4@2x.png"/>
+
+        <resource-file src="src/ios/resource/QRCodeScanLine@2x.png"/>
+
+    </platform>
+
+    
+</plugin>
